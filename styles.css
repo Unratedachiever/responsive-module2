@@ -1,0 +1,81 @@
+/* global box-sizing & reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+h1 {
+  text-align: center;
+  margin: 1em 0;
+  font-size: 1.75em;
+} 
+
+/* container holds the three boxes */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+} 
+
+/* basic section styles */
+.box {
+  position: relative;
+  padding: 2em 1em 1em;
+  border: 1px solid black;
+  margin: 0.5em;
+  background: lightgray;
+}
+.section-title {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  background: white;
+  padding: 0.25em 0.5em;
+  border: 1px solid black;
+  font-size: 1.25em;
+} 
+
+/* different colors per section */
+.box‑chicken { background: #fdebd0; }
+.box‑beef    { background: #f5b7b1; }
+.box‑sushi   { background: #d6eaf8; } 
+
+/* MOBILE: ≤767px — each takes full width */
+@media (max-width: 767px) {
+  .box {
+    width: calc(100% - 2em); /* account for margin */
+    float: none;
+    display: block;
+    clear: both;
+  }
+} 
+
+/* TABLET: 768px–991px */
+@media (min-width: 768px) and (max-width: 991px) {
+  .box {
+    margin: 0.5em;
+  }
+  /* first two side by side, third full width */
+  .box‑chicken,
+  .box‑beef {
+    width: calc(50% - 2em);
+    float: left;
+  }
+  .box‑sushi {
+    width: calc(100% - 2em);
+    float: none;
+    clear: both;
+  }
+} 
+
+/* DESKTOP: ≥992px — three equal columns in one row */
+@media (min-width: 992px) {
+  .box {
+    width: calc(33.333% - 2em);
+    float: left;
+    margin: 0.5em;
+  }
+}
